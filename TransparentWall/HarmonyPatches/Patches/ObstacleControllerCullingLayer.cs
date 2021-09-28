@@ -12,13 +12,9 @@ namespace TransparentWall.HarmonyPatches.Patches
         [SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Harmony calls this")]
         private static void Prefix()
         {
-            if (!Configuration.EnableForHeadset)
+            if (!Configuration.EnableForHeadset && Camera.main != null)
             {
-                Camera cam = Camera.main;
-				if (cam != null)
-				{
-					cam.cullingMask |= 1 << Configuration.WallLayerMask;
-				}
+                Camera.main.cullingMask |= 1 << Configuration.WallLayerMask;
             }
         }
 
@@ -26,13 +22,9 @@ namespace TransparentWall.HarmonyPatches.Patches
         [HarmonyAfter("com.brian91292.beatsaber.cameraplus")]  // Executes after CameraPlus to avoid race condition
         private static void Postfix(ref ObstacleController __instance)
         {
-            if (Configuration.EnableForHeadset)
+            if (Configuration.EnableForHeadset && Camera.main != null)
             {
-                Camera cam = Camera.main;
-				if (cam != null)
-				{
-					cam.cullingMask &= ~(1 << Configuration.WallLayerMask);
-				}
+                Camera.main.cullingMask &= ~(1 << Configuration.WallLayerMask);
             }
 
             if (Configuration.EnableForHeadset || Configuration.DisableForLivCamera)
