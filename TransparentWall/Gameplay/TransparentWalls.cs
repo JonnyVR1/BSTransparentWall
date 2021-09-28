@@ -1,5 +1,4 @@
-﻿using BS_Utils.Gameplay;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using TransparentWall.Gameplay.Modifications;
 using TransparentWall.Settings;
