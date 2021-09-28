@@ -1,4 +1,5 @@
-﻿using IPA;
+﻿using Hive.Versioning;
+using IPA;
 using IPA.Config;
 using IPA.Loader;
 using TransparentWall.Gameplay;
@@ -14,7 +15,7 @@ namespace TransparentWall
     public class Plugin
     {
         public static string PluginName => "TransparentWall";
-        public static SemVer.Version PluginVersion { get; private set; } = new SemVer.Version("0.0.0"); // Default
+        public static Version PluginVersion { get; private set; } = new Version("0.0.0");
 
         [Init]
         public void Init(IPALogger logger, Config config, PluginMetadata metadata)
@@ -22,9 +23,9 @@ namespace TransparentWall
             Logger.Log = logger;
             Configuration.Init(config);
 
-            if (metadata?.Version != null)
+            if (metadata?.HVersion != null)
             {
-                PluginVersion = metadata.Version;
+                PluginVersion = metadata.HVersion;
             }
         }
 
