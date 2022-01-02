@@ -27,13 +27,12 @@ namespace TransparentWall.HarmonyPatches.Patches
                 Camera.main.cullingMask &= ~(1 << Configuration.WallLayerMask);
             }
 
-            if (Configuration.EnableForHeadset || Configuration.DisableForLivCamera)
+            if (!Configuration.EnableForHeadset && !Configuration.DisableForLivCamera) return;
+
+            Renderer mesh = __instance.gameObject?.GetComponentInChildren<Renderer>(false);
+            if (mesh?.gameObject)
             {
-                Renderer mesh = __instance.gameObject?.GetComponentInChildren<Renderer>(false);
-                if (mesh?.gameObject)
-                {
-                    mesh.gameObject.layer = Configuration.WallLayerMask;
-                }
+                mesh.gameObject.layer = Configuration.WallLayerMask;
             }
         }
     }

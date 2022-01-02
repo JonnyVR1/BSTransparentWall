@@ -28,7 +28,7 @@ namespace TransparentWall.HarmonyPatches
         {
             if (_instance == null || !IsPatched) return;
 
-            _instance.UnpatchAll(InstanceId);
+            _instance.UnpatchSelf();
             IsPatched = false;
         }
     }

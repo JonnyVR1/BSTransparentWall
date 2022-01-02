@@ -5,14 +5,14 @@
     "#![TransparentWall.Resources.description.md]",
     "Makes the walls transparent"
   ],
-  "gameVersion": "1.18.0",
+  "gameVersion": "1.19.0",
   "icon": "TransparentWall.Resources.icon.png",
   "id": "TransparentWall",
   "name": "TransparentWall",
-  "version": "1.7.1",
+  "version": "1.8.0",
   "dependsOn": {
     "BSIPA":  "^4.2.0",
-    "BeatSaberMarkupLanguage": "^1.5.9",
+    "BeatSaberMarkupLanguage": "^1.6.0",
     "BS Utils": "^1.11.0"
   },
   "links": {
