@@ -31,7 +31,6 @@ namespace TransparentWall
 
         [OnEnable]
         public void OnEnable() => Load();
-
         [OnDisable]
         public void OnDisable() => Unload();
 
