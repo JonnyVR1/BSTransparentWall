@@ -22,7 +22,7 @@ namespace TransparentWall.Gameplay.Modifications
                 {
                     LayersToMask.ForEach(i =>
                     {
-                        l.SpectatorLayerMask |= 1 << i;
+                        l.spectatorLayerMask|= 1 << i;
                     });
                 });
             }
