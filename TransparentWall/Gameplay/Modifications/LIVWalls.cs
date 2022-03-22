@@ -22,7 +22,9 @@ namespace TransparentWall.Gameplay.Modifications
                 {
                     LayersToMask.ForEach(i =>
                     {
-                        l.spectatorLayerMask|= 1 << i;
+                        l.spectatorLayerMask = Configuration.DisableForLivCamera
+                            ? l.spectatorLayerMask | (1 << i)
+                            : l.spectatorLayerMask & ~(1 << i);
                     });
                 });
             }
