@@ -8,7 +8,7 @@ namespace TransparentWall.Gameplay.Modifications
 {
     public class LivWalls : MonoBehaviour
     {
-        private static readonly IList<string> LivNames = new List<string> { "MenuMainCamera", "MainCamera", "LIV Camera" };
+        private static readonly IEnumerable<string> LivNames = new List<string> { "MenuMainCamera", "MainCamera", "LIV Camera", "LIV" };
         private static readonly List<int> LayersToMask = new List<int> { Configuration.WallLayerMask, Configuration.MoveBackLayer };
 
         // ReSharper disable once MemberCanBeMadeStatic.Global
