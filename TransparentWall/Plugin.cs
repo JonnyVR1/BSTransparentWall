@@ -2,6 +2,7 @@
 using IPA;
 using IPA.Config;
 using IPA.Loader;
+using JetBrains.Annotations;
 using TransparentWall.Gameplay;
 using TransparentWall.HarmonyPatches;
 using TransparentWall.Settings;
@@ -18,6 +19,7 @@ namespace TransparentWall
         public static Version PluginVersion { get; private set; } = new Version("0.0.0");
 
         [Init]
+        [UsedImplicitly]
         public void Init(IPALogger logger, Config config, PluginMetadata metadata)
         {
             Logger.Log = logger;
@@ -30,8 +32,11 @@ namespace TransparentWall
         }
 
         [OnEnable]
+        [UsedImplicitly]
         public void OnEnable() => Load();
+
         [OnDisable]
+        [UsedImplicitly]
         public void OnDisable() => Unload();
 
         public void OnGameSceneLoaded()
