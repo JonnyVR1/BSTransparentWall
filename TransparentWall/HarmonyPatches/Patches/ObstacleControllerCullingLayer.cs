@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using System.Diagnostics.CodeAnalysis;
+using JetBrains.Annotations;
 using TransparentWall.Settings;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace TransparentWall.HarmonyPatches.Patches
     internal class ObstacleControllerCullingLayer
     {
         [SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Harmony calls this")]
+        [UsedImplicitly]
         private static void Prefix()
         {
             if (!Configuration.EnableForHeadset && Camera.main != null)
@@ -19,7 +21,8 @@ namespace TransparentWall.HarmonyPatches.Patches
         }
 
         [SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Harmony calls this")]
-        [HarmonyAfter("com.brian91292.beatsaber.cameraplus")]  // Executes after CameraPlus to avoid race condition
+        [UsedImplicitly]
+        [HarmonyAfter("com.brian91292.beatsaber.cameraplus")] // Executes after CameraPlus to avoid race condition
         private static void Postfix(ref ObstacleController __instance)
         {
             if (Configuration.EnableForHeadset && Camera.main != null)
